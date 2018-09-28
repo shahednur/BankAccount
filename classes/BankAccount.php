@@ -1,5 +1,14 @@
 <?php
-
+//load all interfaces in interfaces folder
+foreach (glob('interfaces/*.php') as $filename)
+{
+    require_once $filename;
+}
+//load all classes in classes folder
+foreach (glob('classes/*.php') as $filename)
+{
+    require_once $filename;
+}
 class BankAccount implements IfaceBankAccount
 {
 
@@ -25,6 +34,7 @@ class BankAccount implements IfaceBankAccount
    }
     public function transfer(Money $amount, BankAccount $account)
     {
-        //implement this method
+        return (int) $this->balance = $this->balance - $amount->value(); // This code will decrease balance from the targeted account
+        $account->balance = $account->balance + $amount->value();  // This code will  increase balance to the targeted account
     }
 }
