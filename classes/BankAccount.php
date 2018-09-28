@@ -17,9 +17,12 @@ class BankAccount implements IfaceBankAccount
 
     public function deposit(Money $amount)
     {
-       return $this->balance->increaseBalance($money->value()); // This function will add balance to the Bank Account
+       return $this->balance->increaseBalance($amount->value()); // This function will add balance to the Bank Account
     }
-
+   public function withdraw(Money $amount)
+   {
+       return $this->balance->decreaseBalance($amount->value()); // This function will minus balance from the Bank Account
+   }
     public function transfer(Money $amount, BankAccount $account)
     {
         //implement this method

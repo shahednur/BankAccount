@@ -17,7 +17,10 @@ class Money
     {
         return $this->amount += $amount; // This helper function will increase the value of  balance.
     }
-
+   public function decreaseBalance($amount)
+   {
+       return $this->amount -= $amount; // This helper function will decrease the value of balance.
+   }
     public function __toString()
     {
         return (string) $this->value();
