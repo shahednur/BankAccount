@@ -19,6 +19,14 @@ class BankAccountTest extends PHPUnit_Framework_TestCase
 
            var_dump($bank1);
        }
+
+       public function testWithdraw()
+       {
+           $bank2 = new BankAccount(new Money(600));
+           $bank2->withdraw(new Money(300));
+
+           var_dump($bank2);
+       }
 }
 
 ?>
