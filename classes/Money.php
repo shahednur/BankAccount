@@ -6,7 +6,7 @@ class Money
 
     public function __construct($amount)
     {
-        $this->amount = (float) $amount;
+        $this->amount =  $amount;
     }
 
     public function value()

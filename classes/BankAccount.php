@@ -9,6 +9,7 @@ foreach (glob('classes/*.php') as $filename)
 {
     require_once $filename;
 }
+
 class BankAccount implements IfaceBankAccount
 {
 
@@ -16,7 +17,7 @@ class BankAccount implements IfaceBankAccount
 
     public function __construct(Money $openingBalance)
     {
-        $this->balance = $openingBalance;
+        $this->balance =$openingBalance;
     }
 
     public function balance()
@@ -30,11 +31,12 @@ class BankAccount implements IfaceBankAccount
     }
    public function withdraw(Money $amount)
    {
-       return $this->balance->decreaseBalance($amount->value()); // This function will minus balance from the Bank Account
+       return $this->balance->decreaseBalance($amount->value());
    }
     public function transfer(Money $amount, BankAccount $account)
-    {
-        return (int) $this->balance = $this->balance - $amount->value(); // This code will decrease balance from the targeted account
+    {   
+        //  $this->balance = $this->balance -$amount->value(); // This code will decrease balance from the targeted account
+        return $this->balance->decreaseBalance($amount->value()); //This code is being used for a type casting bug of previous code block
         $account->balance = $account->balance + $amount->value();  // This code will  increase balance to the targeted account
     }
-}
+} 
